@@ -20,23 +20,7 @@ pipeline{
 						sh 'free -m'
 					}
 				}
-			}
-			stage('2nd parallel'){
-			parallel{
-				stage('Steeve'){
-					steps{
-						sh 'lsblk'
-						sh 'uptime'
-					}
-				}
-				stage('Ngaleu'){
-					steps{
-						sh 'cal'
-						sh 'sudo systemctl status jenkins'
-					}
-				}
-			}
-         }
+			}		
 	}
 }
 }
