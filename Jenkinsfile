@@ -8,19 +8,35 @@ pipeline{
 			}
             stage('1st parallel'){
 			parallel{
-				stage('Divine'){
-					steps{
-						sh 'uname -a'
-						sh 'lscpu'
-					}
+			stage('Divine'){
+				steps{
+					sh 'uname -a'
+					sh 'lscpu'
 				}
-				stage('Ngantcha'){
-					steps{
-						sh 'df -h'
-						sh 'free -m'
-					}
+			}
+			stage('Ngantcha'){
+				steps{
+					sh 'df -h'
+					sh 'free -m'
 				}
-			}		
+			}
+			}
+			}
+			stage('2nd parallel'){
+			parallel{
+			stage('Steeve'){
+				steps{
+					sh 'lsblk'
+					sh 'uptime'
+				}
+			}
+			stage('Ngaleu'){
+				steps{
+					sh 'cal'
+					sh 'sudo systemctl status jenkins'
+				}
+			}
+			}
+            } 
 	}
-}
 }
